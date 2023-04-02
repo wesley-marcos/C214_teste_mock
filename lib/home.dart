@@ -40,14 +40,20 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blueAccent,
         title: Text(
           "User Issues",
-          style: TextStyle(fontSize: 25),
+          //style: TextStyle(fontSize: 25),
+          style: GoogleFonts.aladin(
+              color: Colors.white,
+              fontSize: 32.0,
+          ),
         ),
         centerTitle: true,
         //backgroundColor: AppColors.dodgerBlue,
       ),
 
+      backgroundColor: Colors.blueGrey,
       body: Container(
         padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
         alignment: Alignment.centerLeft,
