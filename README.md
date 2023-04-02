@@ -1,6 +1,11 @@
 # Atividade 6
 
-Criar um novo projeto que consuma alguma API e fazer testes mock nele, através do Mockito.
+Criar um novo projeto que consuma alguma API e fazer testes mock nele, através do Mockito. Eu escolhi uma API que simula dados de um usuário como id, nome, username, email, phone, website.
+
+Link da API:
+```
+https://jsonplaceholder.typicode.com/users
+```
 
 ## Nota
 
