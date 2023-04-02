@@ -11,7 +11,8 @@ void main() {
 
   group('fetch_user', () {
 
-    test('retorna um usuário de a conexão funcionar', () async{
+    // Retorna um usuário de a conexão funcionar
+    test('Code 200', () async{
 
       final client = MockClient();
 
@@ -20,10 +21,23 @@ void main() {
           .thenAnswer((_) async =>
           http.Response(
               '{"id": 7, "name" : "Kurtis Weissnat", '
-                  '"username" : "Elwyn.Skiles", "email" : "Telly.Hoeger@billy.biz",'
+                  '"username" : "Elwyn.Skiles", '
+                  '"email" : "Telly.Hoeger@billy.biz",'
                   '"phone" : "210.067.6132", "website" : "elvis.io"}', 200));
 
       expect(await fetchUser(client), isA<User>());
+    });
+
+    // Lança uma exceção se a conexão não funcionar
+    test('Code 404', (){
+
+      final client = MockClient();
+
+      when(client.get(
+          Uri.parse('https://jsonplaceholder.typicode.com/users/7')))
+          .thenAnswer((_) async => http.Response('Not Found', 404));
+
+      expect(fetchUser(client), throwsException);
     });
   });
 }
